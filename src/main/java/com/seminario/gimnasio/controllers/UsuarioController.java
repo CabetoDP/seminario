@@ -1,5 +1,6 @@
 package com.seminario.gimnasio.controllers;
 
+import com.seminario.gimnasio.requests.LoginRequest;
 import com.seminario.gimnasio.entities.Usuario;
 import com.seminario.gimnasio.services.contracts.IUsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,5 +34,10 @@ public class UsuarioController {
     @DeleteMapping("/delete")
     private ResponseEntity<Boolean> deleteUsuario(@RequestParam Long id) {
         return this.usuarioService.delete(id);
+    }
+
+    @PostMapping("/validate")
+    private ResponseEntity<Boolean> validate(@RequestBody LoginRequest login) {
+        return this.usuarioService.validate(login);
     }
 }

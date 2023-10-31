@@ -1,4 +1,5 @@
 package com.seminario.gimnasio.services.contracts;
+import com.seminario.gimnasio.requests.LoginRequest;
 import com.seminario.gimnasio.entities.Usuario;
 import org.springframework.http.ResponseEntity;
 
@@ -12,4 +13,6 @@ public interface IUsuarioService {
     public ResponseEntity<Usuario> update(Usuario usuario);
 
     public ResponseEntity<Boolean> delete(Long id);
+
+    public ResponseEntity<Boolean> validate (LoginRequest login);
 }

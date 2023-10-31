@@ -7,13 +7,13 @@ public class ContratoEntrenador {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    public long id;
     @ManyToOne
     @JoinColumn (name = "IdCliente")
-    private Usuario IdCliente;
+    public Cliente IdCliente;
     @ManyToOne
     @JoinColumn (name = "IdEntrenador")
-    private Entrenador IdEntrenador;
+    public Entrenador IdEntrenador;
 
     public ContratoEntrenador(){
 

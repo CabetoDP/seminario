@@ -6,7 +6,7 @@ import jakarta.persistence.*;
 public class Administrador {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    public long id;
     @OneToOne
     public Usuario IdUsuario;
 

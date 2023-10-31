@@ -7,13 +7,13 @@ public class AdministracionGimnasio {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    public long id;
     @ManyToOne
     @JoinColumn (name = "IdAdministrador")
-    private Administrador IdAdministrador;
+    public Administrador IdAdministrador;
     @ManyToOne
     @JoinColumn (name = "IdGimnasio")
-    private Gimnasio IdGimnasio;
+    public Gimnasio IdGimnasio;
 
     public AdministracionGimnasio(){
 

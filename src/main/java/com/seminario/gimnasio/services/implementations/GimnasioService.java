@@ -18,8 +18,8 @@ public class GimnasioService implements IGimnasioService {
     @Override
     public ResponseEntity<List<Gimnasio>> findAll() {
         try {
-            List<Gimnasio> contratosGimnasios = this.gimnasioRepository.findAll();
-            return new ResponseEntity<List<Gimnasio>>(contratosGimnasios, HttpStatus.OK);
+            List<Gimnasio> gimnasios = this.gimnasioRepository.findAll();
+            return new ResponseEntity<List<Gimnasio>>(gimnasios, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }

@@ -6,13 +6,13 @@ import jakarta.persistence.*;
 public class Mensaje {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    public long id;
     @ManyToOne
     @JoinColumn (name = "IdUsuarioEmisor")
-    private Usuario idEmisor;
+    public Usuario idEmisor;
     @ManyToOne
     @JoinColumn (name = "IdUsuarioReceptor")
-    private Usuario idReceptor;
+    public Usuario idReceptor;
     String mensaje;
 
     public long getId() {

@@ -7,13 +7,13 @@ public class Gimnasio {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
-    private String Nombre;
-    private String Horarios;
-    private int CostoMensual;
-    private long NIT;
-    private float UbicacionX;
-    private float UbicacionY;
+    public long id;
+    public String Nombre;
+    public String Horarios;
+    public int CostoMensual;
+    public long NIT;
+    public float UbicacionX;
+    public float UbicacionY;
 
     public Gimnasio(){
 

@@ -1,7 +1,7 @@
 package com.seminario.gimnasio.services.implementations;
 import com.seminario.gimnasio.entities.Usuario;
 import com.seminario.gimnasio.repositories.contracts.IUsuarioRepository;
-import com.seminario.gimnasio.requests.LoginRequest;
+//import com.seminario.gimnasio.requests.LoginRequest;
 import com.seminario.gimnasio.services.contracts.IUsuarioService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -58,10 +58,10 @@ public class UsuarioService implements IUsuarioService {
     }
 
     @Override
-    public ResponseEntity<Boolean> validate (LoginRequest login) {
+    public ResponseEntity<Boolean> validate (String correo, String contraseña) {
         
         try {
-            Usuario usuario = this.usuarioRepository.encontrarUsuario(login);
+            Usuario usuario = this.usuarioRepository.encontrarUsuario(correo, contraseña);
 
             if (usuario == null) {
                 // El usuario no fue encontrado en la base de datos
@@ -69,7 +69,7 @@ public class UsuarioService implements IUsuarioService {
             }
 
             // Validar la contraseña
-            if (usuario.getContraseña().equals(login.getContraseña())) {
+            if (usuario.getContraseña().equals(contraseña)) {
                 // Contraseña válida, inicio de sesión exitoso
                 return ResponseEntity.ok(true);
             } 

@@ -65,22 +65,22 @@ public class UsuarioService implements IUsuarioService {
 
             if (usuario == null) {
                 // El usuario no fue encontrado en la base de datos
-                return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(false);
+                return new ResponseEntity<Boolean>(false, HttpStatus.UNAUTHORIZED);
             }
 
             // Validar la contraseña
             if (usuario.getContraseña().equals(contraseña)) {
                 // Contraseña válida, inicio de sesión exitoso
-                return ResponseEntity.ok(true);
+                return new ResponseEntity<Boolean>(true, HttpStatus.OK);
             } 
             else {
                 // Contraseña incorrecta
-                return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(false);
+                return new ResponseEntity<Boolean>(false, HttpStatus.UNAUTHORIZED);
             }
         }
         catch (EmptyResultDataAccessException e) {
             // Manejar la excepción cuando no se encuentra el usuario
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(false);
+            return new ResponseEntity<Boolean>(false, HttpStatus.UNAUTHORIZED);
         }
     }
 }

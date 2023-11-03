@@ -1,6 +1,7 @@
 package com.seminario.gimnasio.services.implementations;
 import com.seminario.gimnasio.entities.Usuario;
 import com.seminario.gimnasio.repositories.contracts.IUsuarioRepository;
+import com.seminario.gimnasio.responses.LoginResponse;
 //import com.seminario.gimnasio.requests.LoginRequest;
 import com.seminario.gimnasio.services.contracts.IUsuarioService;
 
@@ -58,29 +59,33 @@ public class UsuarioService implements IUsuarioService {
     }
 
     @Override
-    public ResponseEntity<Boolean> validate (String correo, String contraseña) {
-        
-        try {
-            Usuario usuario = this.usuarioRepository.encontrarUsuario(correo, contraseña);
+    public ResponseEntity<LoginResponse> validate (String correo, String contraseña) {
 
+        Usuario usuario = this.usuarioRepository.encontrar(correo, contraseña);
+        String tipoUsuario = this.usuarioRepository.mostrarTipo(correo, contraseña);
+
+        LoginResponse validacionUsuario = new LoginResponse(tipoUsuario, false);
+
+        try {
+            
             if (usuario == null) {
                 // El usuario no fue encontrado en la base de datos
-                return new ResponseEntity<Boolean>(false, HttpStatus.UNAUTHORIZED);
+                return new ResponseEntity<LoginResponse>(validacionUsuario, HttpStatus.UNAUTHORIZED);
             }
-
             // Validar la contraseña
             if (usuario.getContraseña().equals(contraseña)) {
                 // Contraseña válida, inicio de sesión exitoso
-                return new ResponseEntity<Boolean>(true, HttpStatus.OK);
+                validacionUsuario.setValidacion(true);
+                return new ResponseEntity<LoginResponse>(validacionUsuario, HttpStatus.OK);
             } 
             else {
                 // Contraseña incorrecta
-                return new ResponseEntity<Boolean>(false, HttpStatus.UNAUTHORIZED);
+                return new ResponseEntity<LoginResponse>(validacionUsuario, HttpStatus.UNAUTHORIZED);
             }
         }
         catch (EmptyResultDataAccessException e) {
             // Manejar la excepción cuando no se encuentra el usuario
-            return new ResponseEntity<Boolean>(false, HttpStatus.UNAUTHORIZED);
+            return new ResponseEntity<LoginResponse>(validacionUsuario, HttpStatus.UNAUTHORIZED);
         }
     }
 }

@@ -1,5 +1,6 @@
 package com.seminario.gimnasio.controllers;
 import com.seminario.gimnasio.requests.LoginRequest;
+import com.seminario.gimnasio.responses.LoginResponse;
 import com.seminario.gimnasio.entities.Usuario;
 import com.seminario.gimnasio.services.contracts.IUsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,7 +37,7 @@ public class UsuarioController {
     }
 
     @PostMapping("/validate")
-    private ResponseEntity<Boolean> validate(@RequestBody LoginRequest login) {
+    private ResponseEntity<LoginResponse> validate(@RequestBody LoginRequest login) {
         return this.usuarioService.validate(login.correo, login.contraseña);
     }
 }

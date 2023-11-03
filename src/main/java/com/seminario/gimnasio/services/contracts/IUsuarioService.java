@@ -1,6 +1,8 @@
 package com.seminario.gimnasio.services.contracts;
 //import com.seminario.gimnasio.requests.LoginRequest;
 import com.seminario.gimnasio.entities.Usuario;
+import com.seminario.gimnasio.responses.LoginResponse;
+
 import org.springframework.http.ResponseEntity;
 
 import java.util.List;
@@ -14,5 +16,5 @@ public interface IUsuarioService {
 
     public ResponseEntity<Boolean> delete(Long id);
 
-    public ResponseEntity<Boolean> validate (String correo, String contraseña);
+    public ResponseEntity<LoginResponse> validate (String correo, String contraseña);
 }

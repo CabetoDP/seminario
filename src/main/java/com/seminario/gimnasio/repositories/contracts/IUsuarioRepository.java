@@ -2,6 +2,8 @@ package com.seminario.gimnasio.repositories.contracts;
 import com.seminario.gimnasio.entities.Usuario;
 import com.seminario.gimnasio.responses.UsuarioResponse;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -21,5 +23,14 @@ public interface IUsuarioRepository extends JpaRepository<Usuario, Long>{
 
     @Query(value = "SELECT apellidos, celular, nombres, tipo_usuario FROM Usuarios WHERE correo = :correo AND contraseña = :contraseña", nativeQuery = true)
     public UsuarioResponse mostrarPerfil(@Param("correo") String correo, @Param("contraseña") String contraseña);
+    
+    @Query(value = "SELECT DISTINCT u.* FROM Usuarios u " +
+                    "INNER JOIN Mensajes m ON u.id = m.IdUsuarioEmisor " +
+                    "WHERE m.IdUsuarioReceptor = (SELECT id FROM Usuarios WHERE Correo = :correo) " +
+                    "UNION " +
+                    "SELECT DISTINCT u.* FROM Usuarios u " +
+                    "INNER JOIN Mensajes m ON u.id = m.IdUsuarioReceptor " +
+                    "WHERE m.IdUsuarioEmisor = (SELECT id FROM Usuarios WHERE Correo = :correo)", nativeQuery = true)
+    List<Usuario> listarContactos(@Param("correo") String correo);
 
 }

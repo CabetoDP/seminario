@@ -1,6 +1,9 @@
 package com.seminario.gimnasio.services.implementations;
 import com.seminario.gimnasio.entities.Entrenador;
+import com.seminario.gimnasio.entities.Usuario;
 import com.seminario.gimnasio.repositories.contracts.IEntrenadorRepository;
+import com.seminario.gimnasio.responses.EntrenadorResponse;
+import com.seminario.gimnasio.responses.UsuarioResponse;
 import com.seminario.gimnasio.services.contracts.IEntrenadorService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,4 +57,16 @@ public class EntrenadorService implements IEntrenadorService {
             return new ResponseEntity<Boolean>(false, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+    @Override
+    public ResponseEntity<Entrenador> mostrar (String correo, String contraseña){
+        Entrenador entrenador = this.entrenadorRepository.mostrar(correo, contraseña);
+        return new ResponseEntity<Entrenador>(entrenador, HttpStatus.OK);
+    }
+
+    @Override
+    public ResponseEntity<EntrenadorResponse> mostrarPerfil (String correo, String contraseña){
+        EntrenadorResponse entrenador = this.entrenadorRepository.mostrarPerfil(correo, contraseña);
+        return new ResponseEntity<EntrenadorResponse>(entrenador, HttpStatus.OK);
+    } 
 }

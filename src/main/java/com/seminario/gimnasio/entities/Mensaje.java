@@ -1,5 +1,6 @@
 package com.seminario.gimnasio.entities;
 import jakarta.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
 @Table (name = "Mensajes")
@@ -14,6 +15,7 @@ public class Mensaje {
     @JoinColumn (name = "IdUsuarioReceptor")
     public Usuario idReceptor;
     String mensaje;
+    public LocalDateTime fechaYhora;
 
     public long getId() {
         return id;
@@ -33,5 +35,13 @@ public class Mensaje {
 
     public void setMensaje(String mensaje) {
         this.mensaje = mensaje;
+    }
+
+    public LocalDateTime getFechaYhora() {
+        return fechaYhora;
+    }
+
+    public void setFechaYhora(LocalDateTime fechaYhora) {
+        this.fechaYhora = fechaYhora;
     }
 }

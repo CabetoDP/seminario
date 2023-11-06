@@ -9,7 +9,6 @@ public class Administrador {
     public long id;
     @OneToOne
     public Usuario IdUsuario;
-
     public Administrador(){
 
     }

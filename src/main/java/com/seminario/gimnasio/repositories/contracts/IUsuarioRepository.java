@@ -1,6 +1,6 @@
 package com.seminario.gimnasio.repositories.contracts;
 import com.seminario.gimnasio.entities.Usuario;
-//import com.seminario.gimnasio.requests.LoginRequest;
+import com.seminario.gimnasio.responses.UsuarioResponse;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -16,8 +16,10 @@ public interface IUsuarioRepository extends JpaRepository<Usuario, Long>{
     @Query(value = "SELECT tipo_usuario FROM Usuarios WHERE correo = :correo AND contraseña = :contraseña", nativeQuery = true)
     public String mostrarTipo(@Param("correo") String correo, @Param("contraseña") String contraseña);
 
+    @Query(value = "SELECT * FROM Usuarios WHERE correo = :correo AND contraseña = :contraseña", nativeQuery = true)
+    public Usuario mostrar(@Param("correo") String correo, @Param("contraseña") String contraseña);
 
-
-
+    @Query(value = "SELECT apellidos, celular, nombres, tipo_usuario FROM Usuarios WHERE correo = :correo AND contraseña = :contraseña", nativeQuery = true)
+    public UsuarioResponse mostrarPerfil(@Param("correo") String correo, @Param("contraseña") String contraseña);
 
 }

@@ -1,19 +1,11 @@
-package com.seminario.gimnasio.entities;
-import jakarta.persistence.*;
+package com.seminario.gimnasio.responses;
 
-@Entity
-@Table (name = "Clientes")
-public class Cliente {
+public class ClienteResponse {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public long id;
-    @OneToOne
-    public Usuario IdUsuario;
     public float Altura;
     public float Peso;
 
-    public Cliente(){
+    public ClienteResponse(){
 
     }
 

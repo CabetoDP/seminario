@@ -1,19 +1,11 @@
-package com.seminario.gimnasio.entities;
-import jakarta.persistence.*;
+package com.seminario.gimnasio.responses;
 
-@Entity
-@Table (name = "Entrenadores")
-public class Entrenador {
+public class EntrenadorResponse {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public long id;
-    @OneToOne
-    public Usuario IdUsuario;
     public String Especialidad;
     public String Descripcion;
 
-    public Entrenador(){
+    public EntrenadorResponse(){
 
     }
 

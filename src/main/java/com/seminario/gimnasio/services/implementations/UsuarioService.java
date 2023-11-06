@@ -2,6 +2,7 @@ package com.seminario.gimnasio.services.implementations;
 import com.seminario.gimnasio.entities.Usuario;
 import com.seminario.gimnasio.repositories.contracts.IUsuarioRepository;
 import com.seminario.gimnasio.responses.LoginResponse;
+import com.seminario.gimnasio.responses.UsuarioResponse;
 //import com.seminario.gimnasio.requests.LoginRequest;
 import com.seminario.gimnasio.services.contracts.IUsuarioService;
 
@@ -70,7 +71,7 @@ public class UsuarioService implements IUsuarioService {
             
             if (usuario == null) {
                 // El usuario no fue encontrado en la base de datos
-                return new ResponseEntity<LoginResponse>(validacionUsuario, HttpStatus.UNAUTHORIZED);
+                return new ResponseEntity<LoginResponse>(validacionUsuario, HttpStatus.OK);
             }
             // Validar la contraseña
             if (usuario.getContraseña().equals(contraseña)) {
@@ -80,7 +81,7 @@ public class UsuarioService implements IUsuarioService {
             } 
             else {
                 // Contraseña incorrecta
-                return new ResponseEntity<LoginResponse>(validacionUsuario, HttpStatus.UNAUTHORIZED);
+                return new ResponseEntity<LoginResponse>(validacionUsuario, HttpStatus.OK);
             }
         }
         catch (EmptyResultDataAccessException e) {
@@ -88,5 +89,17 @@ public class UsuarioService implements IUsuarioService {
             return new ResponseEntity<LoginResponse>(validacionUsuario, HttpStatus.UNAUTHORIZED);
         }
     }
+
+    @Override
+    public ResponseEntity<Usuario> mostrar (String correo, String contraseña){
+        Usuario usuario = this.usuarioRepository.mostrar(correo, contraseña);
+        return new ResponseEntity<Usuario>(usuario, HttpStatus.OK);
+    }
+
+    @Override
+    public ResponseEntity<UsuarioResponse> mostrarPerfil (String correo, String contraseña){
+        UsuarioResponse usuario = this.usuarioRepository.mostrarPerfil(correo, contraseña);
+        return new ResponseEntity<UsuarioResponse>(usuario, HttpStatus.OK);
+    } 
 }
 

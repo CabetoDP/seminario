@@ -1,6 +1,7 @@
 package com.seminario.gimnasio.services.contracts;
-import com.seminario.gimnasio.entities.Cliente;
 import com.seminario.gimnasio.entities.Entrenador;
+import com.seminario.gimnasio.responses.EntrenadorResponse;
+
 import org.springframework.http.ResponseEntity;
 
 import java.util.List;
@@ -16,5 +17,5 @@ public interface IEntrenadorService {
     
     public ResponseEntity <Entrenador> mostrar(String correo, String contraseña);
 
-    public ResponseEntity <EntrenadorResponse> mostrarPerfil(String correo, String contraseña);
+    public ResponseEntity <EntrenadorResponse> mostrarPerfil(long id);
 }

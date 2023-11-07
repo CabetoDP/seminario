@@ -65,8 +65,8 @@ public class EntrenadorService implements IEntrenadorService {
     }
 
     @Override
-    public ResponseEntity<EntrenadorResponse> mostrarPerfil (String correo, String contraseña){
-        EntrenadorResponse entrenador = this.entrenadorRepository.mostrarPerfil(correo, contraseña);
+    public ResponseEntity<EntrenadorResponse> mostrarPerfil (long id){
+        EntrenadorResponse entrenador = this.entrenadorRepository.mostrarPerfil(id);
         return new ResponseEntity<EntrenadorResponse>(entrenador, HttpStatus.OK);
     } 
 }

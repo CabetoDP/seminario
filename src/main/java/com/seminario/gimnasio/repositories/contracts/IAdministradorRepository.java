@@ -11,7 +11,4 @@ public interface IAdministradorRepository extends JpaRepository<Administrador, L
     @Query(value = "SELECT * FROM Usuarios INNER JOIN Administradores ON Usuarios.id = Administradores.id_usuario_id WHERE Usuarios.correo = :correo AND Usuarios.contraseña = :contraseña", nativeQuery = true)
     public Administrador mostrar(@Param("correo") String correo, @Param("contraseña") String contraseña);
 
-    @Query(value = "SELECT descripcion, especialidad FROM Usuarios INNER JOIN Administradores ON Usuarios.id = Administradores.id_usuario_id WHERE Usuarios.correo = :correo AND Usuarios.contraseña = :contraseña", nativeQuery = true)
-    public Administrador mostrarPerfil(@Param("correo") String correo, @Param("contraseña") String contraseña);
-
 }

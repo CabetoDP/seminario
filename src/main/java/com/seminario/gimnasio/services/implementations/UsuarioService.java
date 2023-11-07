@@ -8,6 +8,7 @@ import com.seminario.gimnasio.services.contracts.IUsuarioService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.data.repository.query.Param;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -97,9 +98,21 @@ public class UsuarioService implements IUsuarioService {
     }
 
     @Override
-    public ResponseEntity<UsuarioResponse> mostrarPerfil (String correo, String contraseña){
-        UsuarioResponse usuario = this.usuarioRepository.mostrarPerfil(correo, contraseña);
+    public ResponseEntity<UsuarioResponse> mostrarPerfil (Long id){
+        UsuarioResponse usuario = this.usuarioRepository.mostrarPerfil(id);
         return new ResponseEntity<UsuarioResponse>(usuario, HttpStatus.OK);
-    } 
+    }
+    
+    @Override
+    public ResponseEntity <UsuarioResponse> buscar(String busqueda){
+        UsuarioResponse usuario = this.usuarioRepository.buscar(busqueda);
+        return new ResponseEntity<UsuarioResponse>(usuario, HttpStatus.OK);
+    }
+
+    @Override
+    public ResponseEntity <List<UsuarioResponse>> listar(){
+        List<UsuarioResponse> usuarios = this.usuarioRepository.listar();
+        return new ResponseEntity<List<UsuarioResponse>>(usuarios, HttpStatus.OK);
+    }
 }
 

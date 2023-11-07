@@ -2,6 +2,7 @@ package com.seminario.gimnasio.responses;
 
 public class ClienteResponse {
 
+    public long id;
     public float Altura;
     public float Peso;
 
@@ -9,19 +10,16 @@ public class ClienteResponse {
 
     }
 
+    public long getId() {
+        return id;
+    }
+
     public float getAltura() {
         return Altura;
-    }
-    
-    public void setAltura(float altura) {
-        Altura = altura;
     }
 
     public float getPeso() {
         return Peso;
     }
 
-    public void setPeso(float peso) {
-        Peso = peso;
-    }
 }

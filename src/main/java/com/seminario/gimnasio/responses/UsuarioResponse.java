@@ -1,7 +1,8 @@
 package com.seminario.gimnasio.responses;
 
 public class UsuarioResponse {
-
+    
+    public long id;
     public String TipoUsuario;
     public String Nombres;
     public String Apellidos;
@@ -12,43 +13,27 @@ public class UsuarioResponse {
 
     }
 
-    public String getTipoUsuario() {
-        return TipoUsuario;
+    public long getId() {
+        return id;
     }
 
-    public void setTipoUsuario(String tipoUsuario) {
-        TipoUsuario = tipoUsuario;
+    public String getTipoUsuario() {
+        return TipoUsuario;
     }
 
     public String getNombres() {
         return Nombres;
     }
 
-    public void setNombres(String nombres) {
-        Nombres = nombres;
-    }
-
     public String getApellidos() {
         return Apellidos;
-    }
-
-    public void setApellidos(String apellidos) {
-        Apellidos = apellidos;
     }
 
     public long getCelular() {
         return Celular;
     }
 
-    public void setCelular(long celular) {
-        Celular = celular;
-    }
-
     public int getEdad() {
         return Edad;
-    }
-
-    public void setEdad(int edad) {
-        Edad = edad;
     }
 }

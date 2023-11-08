@@ -6,11 +6,10 @@ import jakarta.persistence.*;
 public class AdministracionGimnasio {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public long id;
-    @ManyToOne
+    @OneToOne
     @JoinColumn (name = "IdAdministrador")
-    public Administrador IdAdministrador;
+    public Usuario IdAdministrador;
     @ManyToOne
     @JoinColumn (name = "IdGimnasio")
     public Gimnasio IdGimnasio;

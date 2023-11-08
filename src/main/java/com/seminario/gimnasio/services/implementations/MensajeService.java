@@ -1,6 +1,7 @@
 package com.seminario.gimnasio.services.implementations;
 import com.seminario.gimnasio.entities.Mensaje;
 import com.seminario.gimnasio.repositories.contracts.IMensajeRepository;
+import com.seminario.gimnasio.responses.UsuarioResponse;
 import com.seminario.gimnasio.services.contracts.IMensajeService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,5 +54,11 @@ public class MensajeService implements IMensajeService {
         }catch (Exception e) {
             return new ResponseEntity<Boolean>(false, HttpStatus.INTERNAL_SERVER_ERROR);
         }
+    }
+
+    @Override
+    public ResponseEntity<List<Mensaje>> chatBetweenUsers(String correoLogeado, String contraseñaLogeado, Long id){
+        List<Mensaje> mensajes = this.mensajeRepository.chatEntreUsuarios(correoLogeado, contraseñaLogeado, id);
+        return new ResponseEntity<List<Mensaje>>(mensajes, HttpStatus.OK);
     }
 }

@@ -12,4 +12,6 @@ public interface IMensajeService {
     public ResponseEntity<Mensaje> update(Mensaje mensaje);
 
     public ResponseEntity<Boolean> delete(Long id);
+
+    public ResponseEntity<List<Mensaje>> chatBetweenUsers(String correoLogeado, String contraseñaLogeado, Long id);
 }

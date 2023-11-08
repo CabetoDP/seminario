@@ -10,11 +10,12 @@ import org.springframework.data.repository.query.Param;
 
 
 public interface IMensajeRepository extends JpaRepository<Mensaje, Long>{
-    @Query(value = "SELECT * FROM Mensajes " +
-                   "WHERE (id_usuario_emisor = (SELECT id FROM Usuarios WHERE Correo = :correoEmisor) " +
-                   "AND id_usuario_receptor = (SELECT id FROM Usuarios WHERE Correo = :correoReceptor)) " +
-                   "OR (id_usuario_emisor = (SELECT id FROM Usuarios WHERE Correo = :correoReceptor) " +
-                   "AND id_usuario_receptor = (SELECT id FROM Usuarios WHERE Correo = :correoEmisor)) " +
-                   "ORDER BY fecha_yhora", nativeQuery = true)
-    List<Mensaje> obtenerMensajesEntreUsuarios(@Param("correoEmisor") String correoEmisor, @Param("correoReceptor") String correoReceptor);
+    @Query(value = "SELECT m.* " +
+                   "FROM Mensajes m " +
+                   "INNER JOIN Usuarios u1 ON m.id_usuario_emisor = u1.id " +
+                   "INNER JOIN Usuarios u2 ON m.id_usuario_receptor = u2.id " +
+                   "WHERE (u1.correo = :correoLogeado AND u1.contraseña = :contraseñaLogeado) " +
+                   "   AND (u2.id = :idContacto OR u1.id = :idContacto) " +
+                   "ORDER BY m.fecha_yhora", nativeQuery = true)
+    List<Mensaje> chatEntreUsuarios(@Param("correoLogeado") String correoLogeado, @Param("contraseñaLogeado") String contraseñaLogeado, @Param("id") long id);
 }

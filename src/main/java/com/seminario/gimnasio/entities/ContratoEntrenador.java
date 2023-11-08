@@ -10,10 +10,10 @@ public class ContratoEntrenador {
     public long id;
     @ManyToOne
     @JoinColumn (name = "IdCliente")
-    public Cliente IdCliente;
+    public Usuario IdCliente;
     @ManyToOne
     @JoinColumn (name = "IdEntrenador")
-    public Entrenador IdEntrenador;
+    public Usuario IdEntrenador;
 
     public ContratoEntrenador(){
 

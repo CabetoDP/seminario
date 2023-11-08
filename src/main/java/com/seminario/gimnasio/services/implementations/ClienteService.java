@@ -59,13 +59,13 @@ public class ClienteService implements IClienteService {
     }
 
     @Override
-    public ResponseEntity<Cliente> mostrar (String correo, String contraseña){
+    public ResponseEntity<Cliente> show (String correo, String contraseña){
         Cliente cliente = this.clienteRepository.mostrar(correo, contraseña);
         return new ResponseEntity<Cliente>(cliente, HttpStatus.OK);
     }
 
     @Override
-    public ResponseEntity<ClienteResponse> mostrarPerfil (String correo, String contraseña){
+    public ResponseEntity<ClienteResponse> showProfile (String correo, String contraseña){
         ClienteResponse cliente = this.clienteRepository.mostrarPerfil(correo, contraseña);
         return new ResponseEntity<ClienteResponse>(cliente, HttpStatus.OK);
     } 

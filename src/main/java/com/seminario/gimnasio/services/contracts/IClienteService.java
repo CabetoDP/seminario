@@ -15,7 +15,7 @@ public interface IClienteService {
 
     public ResponseEntity<Boolean> delete(Long id);
 
-    public ResponseEntity <Cliente> mostrar(String correo, String contraseña);
+    public ResponseEntity <Cliente> show(String correo, String contraseña);
 
-    public ResponseEntity <ClienteResponse> mostrarPerfil(String correo, String contraseña);
+    public ResponseEntity <ClienteResponse> showProfile(String correo, String contraseña);
 }

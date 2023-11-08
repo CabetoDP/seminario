@@ -92,25 +92,30 @@ public class UsuarioService implements IUsuarioService {
     }
 
     @Override
-    public ResponseEntity<Usuario> mostrar (String correo, String contraseña){
+    public ResponseEntity<Usuario> show (String correo, String contraseña){
         Usuario usuario = this.usuarioRepository.mostrar(correo, contraseña);
         return new ResponseEntity<Usuario>(usuario, HttpStatus.OK);
     }
 
     @Override
-    public ResponseEntity<UsuarioResponse> mostrarPerfil (Long id){
+    public ResponseEntity<UsuarioResponse> showProfile (Long id){
         UsuarioResponse usuario = this.usuarioRepository.mostrarPerfil(id);
         return new ResponseEntity<UsuarioResponse>(usuario, HttpStatus.OK);
     }
     
+    public ResponseEntity <List<UsuarioResponse>> listContacts (Long id){
+        List<UsuarioResponse> usuario = this.usuarioRepository.listarContactos(id);
+        return new ResponseEntity<List<UsuarioResponse>>(usuario, HttpStatus.OK);
+    }
+
     @Override
-    public ResponseEntity <UsuarioResponse> buscar(String busqueda){
+    public ResponseEntity <UsuarioResponse> search(String busqueda){
         UsuarioResponse usuario = this.usuarioRepository.buscar(busqueda);
         return new ResponseEntity<UsuarioResponse>(usuario, HttpStatus.OK);
     }
 
     @Override
-    public ResponseEntity <List<UsuarioResponse>> listar(){
+    public ResponseEntity <List<UsuarioResponse>> listProfiles(){
         List<UsuarioResponse> usuarios = this.usuarioRepository.listar();
         return new ResponseEntity<List<UsuarioResponse>>(usuarios, HttpStatus.OK);
     }

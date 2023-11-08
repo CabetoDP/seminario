@@ -1,6 +1,8 @@
 package com.seminario.gimnasio.controllers;
 
 import com.seminario.gimnasio.entities.Entrenador;
+import com.seminario.gimnasio.requests.LoginRequest;
+import com.seminario.gimnasio.responses.EntrenadorResponse;
 import com.seminario.gimnasio.services.contracts.IEntrenadorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -33,5 +35,15 @@ public class EntrenadorController {
     @DeleteMapping("/delete")
     private ResponseEntity<Boolean> deleteEntrenador(@RequestParam Long id) {
         return this.entrenadorService.delete(id);
+    }
+
+    @PostMapping("/show")
+    private ResponseEntity<Entrenador> show(@RequestParam LoginRequest login) {
+        return this.entrenadorService.show(login.correo, login.contraseña);
+    }
+
+    @PostMapping("/showProfile")
+    private ResponseEntity<EntrenadorResponse> showProfile(@RequestParam Long id) {
+        return this.entrenadorService.showProfile(id);
     }
 }

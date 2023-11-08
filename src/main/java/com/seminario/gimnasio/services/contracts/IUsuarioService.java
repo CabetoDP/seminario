@@ -18,11 +18,13 @@ public interface IUsuarioService {
 
     public ResponseEntity<LoginResponse> validate (String correo, String contraseña);
 
-    public ResponseEntity <Usuario> mostrar(String correo, String contraseña);
+    public ResponseEntity <Usuario> show(String correo, String contraseña);
     
-    public ResponseEntity <UsuarioResponse> mostrarPerfil(Long id);
+    public ResponseEntity <UsuarioResponse> showProfile(Long id);
 
-    public ResponseEntity <UsuarioResponse> buscar(String busqueda);
+    public ResponseEntity <List<UsuarioResponse>> listContacts (Long id);
 
-    public ResponseEntity <List<UsuarioResponse>> listar();
+    public ResponseEntity <UsuarioResponse> search(String busqueda);
+
+    public ResponseEntity <List<UsuarioResponse>> listProfiles();
 }

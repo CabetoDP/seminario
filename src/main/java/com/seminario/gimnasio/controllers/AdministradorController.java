@@ -1,6 +1,7 @@
 package com.seminario.gimnasio.controllers;
 
 import com.seminario.gimnasio.entities.Administrador;
+import com.seminario.gimnasio.requests.LoginRequest;
 import com.seminario.gimnasio.services.contracts.IAdministradorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -34,4 +35,17 @@ public class AdministradorController {
     private ResponseEntity<Boolean> deleteCliente(@RequestParam Long id) {
         return this.administradorService.delete(id);
     }
+
+    @PostMapping("/show")
+    private ResponseEntity<Administrador> show(@RequestParam LoginRequest login) {
+        return this.administradorService.show(login.correo, login.contraseña);
+    }
+
+    /* @PostMapping("/showProfile")
+    private ResponseEntity<AdministradorResponse> showProfile(@RequestParam long id) {
+        return this.administradorService.showProfile(id);
+    }
+    */
+    
+    
 }

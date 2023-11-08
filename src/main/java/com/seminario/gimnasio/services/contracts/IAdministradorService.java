@@ -1,5 +1,6 @@
 package com.seminario.gimnasio.services.contracts;
 import com.seminario.gimnasio.entities.Administrador;
+
 import org.springframework.http.ResponseEntity;
 
 import java.util.List;
@@ -12,4 +13,6 @@ public interface IAdministradorService {
     public ResponseEntity<Administrador> update(Administrador administrador);
 
     public ResponseEntity<Boolean> delete(Long id);
+
+    public ResponseEntity <Administrador> show(String correo, String contraseña);
 }

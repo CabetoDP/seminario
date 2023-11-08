@@ -56,5 +56,11 @@ public class AdministradorService implements IAdministradorService {
             return new ResponseEntity<Boolean>(false, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+    public ResponseEntity <Administrador> show(String correo, String contraseña){
+        Administrador administrador = this.administradorRepository.mostrar(correo, contraseña);
+        return new ResponseEntity<Administrador>(administrador, HttpStatus.OK);
+    }
+
 }
 

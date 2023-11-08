@@ -59,13 +59,13 @@ public class EntrenadorService implements IEntrenadorService {
     }
 
     @Override
-    public ResponseEntity<Entrenador> mostrar (String correo, String contraseña){
+    public ResponseEntity<Entrenador> show (String correo, String contraseña){
         Entrenador entrenador = this.entrenadorRepository.mostrar(correo, contraseña);
         return new ResponseEntity<Entrenador>(entrenador, HttpStatus.OK);
     }
 
     @Override
-    public ResponseEntity<EntrenadorResponse> mostrarPerfil (long id){
+    public ResponseEntity<EntrenadorResponse> showProfile (long id){
         EntrenadorResponse entrenador = this.entrenadorRepository.mostrarPerfil(id);
         return new ResponseEntity<EntrenadorResponse>(entrenador, HttpStatus.OK);
     } 

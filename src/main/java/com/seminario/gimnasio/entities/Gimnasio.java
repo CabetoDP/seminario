@@ -12,8 +12,9 @@ public class Gimnasio {
     public String Horarios;
     public int CostoMensual;
     public long NIT;
-    public float UbicacionX;
-    public float UbicacionY;
+    public String Ciudad;
+    public String barrio;
+    public String direccion;
 
     public Gimnasio(){
 
@@ -51,19 +52,27 @@ public class Gimnasio {
         NIT = nIT;
     }
 
-    public float getUbicacionX() {
-        return UbicacionX;
+    public String getCiudad() {
+        return Ciudad;
     }
 
-    public void setUbicacionX(float ubicacionX) {
-        UbicacionX = ubicacionX;
+    public void setCiudad(String ciudad) {
+        Ciudad = ciudad;
     }
 
-    public float getUbicacionY() {
-        return UbicacionY;
+    public String getBarrio() {
+        return barrio;
     }
 
-    public void setUbicacionY(float ubicacionY) {
-        UbicacionY = ubicacionY;
+    public void setBarrio(String barrio) {
+        this.barrio = barrio;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
     }
 }

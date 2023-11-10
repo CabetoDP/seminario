@@ -15,7 +15,7 @@ public interface IEntrenadorService {
 
     public ResponseEntity<Boolean> delete(Long id);
     
-    public ResponseEntity <Entrenador> mostrar(String correo, String contraseña);
+    public ResponseEntity <Entrenador> show(String correo, String contraseña);
 
-    public ResponseEntity <EntrenadorResponse> mostrarPerfil(long id);
+    public ResponseEntity <EntrenadorResponse> showProfile(long id);
 }

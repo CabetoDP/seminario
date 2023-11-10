@@ -1,5 +1,6 @@
 package com.seminario.gimnasio.entities;
 import jakarta.persistence.*;
+import java.time.LocalDate;
 
 @Entity
 @Table (name = "Usuarios")
@@ -15,7 +16,7 @@ public class Usuario {
     public String Correo;
     public String Contraseña;
     public long Celular;
-    public int Edad;
+    public LocalDate fechaDeNacimiento;
 
     public Usuario(){
 
@@ -76,11 +77,12 @@ public class Usuario {
         Celular = celular;
     }
 
-    public int getEdad() {
-        return Edad;
+    public LocalDate getFechaDeNacimiento() {
+        return fechaDeNacimiento;
     }
 
-    public void setEdad(int edad) {
-        Edad = edad;
+    public void setFechaDeNacimiento(LocalDate fechaDeNacimiento) {
+        this.fechaDeNacimiento = fechaDeNacimiento;
     }
+
 }

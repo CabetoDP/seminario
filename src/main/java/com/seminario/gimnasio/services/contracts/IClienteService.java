@@ -17,5 +17,5 @@ public interface IClienteService {
 
     public ResponseEntity <Cliente> show(String correo, String contraseña);
 
-    public ResponseEntity <ClienteResponse> showProfile(String correo, String contraseña);
+    public ResponseEntity <ClienteResponse> showProfile(long id);
 }

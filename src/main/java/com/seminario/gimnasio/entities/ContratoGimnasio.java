@@ -14,6 +14,7 @@ public class ContratoGimnasio {
     @ManyToOne
     @JoinColumn (name = "IdGimnasio")
     public Gimnasio IdGimnasio;
+    public String tYc;
 
     public ContratoGimnasio(){
 

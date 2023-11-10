@@ -1,9 +1,7 @@
 package com.seminario.gimnasio.services.implementations;
 import com.seminario.gimnasio.entities.Cliente;
-import com.seminario.gimnasio.entities.Usuario;
 import com.seminario.gimnasio.repositories.contracts.IClienteRepository;
 import com.seminario.gimnasio.responses.ClienteResponse;
-import com.seminario.gimnasio.responses.UsuarioResponse;
 import com.seminario.gimnasio.services.contracts.IClienteService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -65,8 +63,8 @@ public class ClienteService implements IClienteService {
     }
 
     @Override
-    public ResponseEntity<ClienteResponse> showProfile (String correo, String contraseña){
-        ClienteResponse cliente = this.clienteRepository.mostrarPerfil(correo, contraseña);
+    public ResponseEntity<ClienteResponse> showProfile (long id){
+        ClienteResponse cliente = this.clienteRepository.mostrarPerfil(id);
         return new ResponseEntity<ClienteResponse>(cliente, HttpStatus.OK);
     } 
 }

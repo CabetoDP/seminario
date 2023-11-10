@@ -1,5 +1,7 @@
 package com.seminario.gimnasio.responses;
 
+import java.time.LocalDate;
+
 public class UsuarioResponse {
     
     public long id;
@@ -7,7 +9,7 @@ public class UsuarioResponse {
     public String Nombres;
     public String Apellidos;
     public long Celular;
-    public int Edad;
+    public LocalDate fechaDeNacimiento;
 
     public UsuarioResponse(){
 
@@ -33,7 +35,7 @@ public class UsuarioResponse {
         return Celular;
     }
 
-    public int getEdad() {
-        return Edad;
+    public LocalDate getFechaDeNacimiento() {
+        return fechaDeNacimiento;
     }
 }

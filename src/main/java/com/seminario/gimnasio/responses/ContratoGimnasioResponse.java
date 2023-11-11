@@ -13,4 +13,20 @@ public class ContratoGimnasioResponse {
     public ContratoGimnasioResponse(){
 
     }
+
+    public long getId() {
+        return id;
+    }
+
+    public Cliente getIdCliente() {
+        return IdCliente;
+    }
+
+    public Gimnasio getIdGimnasio() {
+        return IdGimnasio;
+    }
+
+    public int getCostoMensual() {
+        return costoMensual;
+    }
 }

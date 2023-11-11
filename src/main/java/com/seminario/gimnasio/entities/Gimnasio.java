@@ -8,11 +8,11 @@ public class Gimnasio {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public long id;
-    public String Nombre;
-    public String Horarios;
-    public int CostoMensual;
+    public String nombre;
+    public String horarios;
+    public int costoMensual;
     public long NIT;
-    public String Ciudad;
+    public String ciudad;
     public String barrio;
     public String direccion;
 
@@ -21,27 +21,27 @@ public class Gimnasio {
     }
 
     public String getNombre() {
-        return Nombre;
+        return nombre;
     }
 
-    public void setNombre(String nombre) {
-        Nombre = nombre;
+    public void setNombre(String Nombre) {
+        nombre = Nombre;
     }
 
     public String getHorarios() {
-        return Horarios;
+        return horarios;
     }
 
-    public void setHorarios(String horarios) {
-        Horarios = horarios;
+    public void setHorarios(String Horarios) {
+        horarios = Horarios;
     }
 
     public int getCostoMensual() {
-        return CostoMensual;
+        return costoMensual;
     }
 
-    public void setCostoMensual(int costoMensual) {
-        CostoMensual = costoMensual;
+    public void setCostoMensual(int CostoMensual) {
+        costoMensual = CostoMensual;
     }
 
     public long getNIT() {
@@ -53,26 +53,26 @@ public class Gimnasio {
     }
 
     public String getCiudad() {
-        return Ciudad;
+        return ciudad;
     }
 
-    public void setCiudad(String ciudad) {
-        Ciudad = ciudad;
+    public void setCiudad(String Ciudad) {
+        ciudad = Ciudad;
     }
 
     public String getBarrio() {
         return barrio;
     }
 
-    public void setBarrio(String barrio) {
-        this.barrio = barrio;
+    public void setBarrio(String Barrio) {
+        barrio = Barrio;
     }
 
     public String getDireccion() {
         return direccion;
     }
 
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
+    public void setDireccion(String Direccion) {
+        direccion = Direccion;
     }
 }

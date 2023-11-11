@@ -9,27 +9,36 @@ public class Entrenador {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public long id;
     @OneToOne
-    public Usuario IdUsuario;
-    public String Especialidad;
-    public String Descripcion;
+    public Usuario idUsuario;
+    public String especialidad;
+    public String descripcion;
+    public int costoMensual;
 
     public Entrenador(){
 
     }
 
     public String getEspecialidad() {
-        return Especialidad;
+        return especialidad;
     }
 
-    public void setEspecialidad(String especialidad) {
-        Especialidad = especialidad;
+    public void setEspecialidad(String Especialidad) {
+        especialidad = Especialidad;
     }
 
     public String getDescripcion() {
-        return Descripcion;
+        return descripcion;
     }
 
-    public void setDescripcion(String descripcion) {
-        Descripcion = descripcion;
+    public void setDescripcion(String Descripcion) {
+        descripcion = Descripcion;
+    }
+
+    public int getCostoMensual() {
+        return costoMensual;
+    }
+
+    public void setCostoMensual(int CostoMensual) {
+        costoMensual = CostoMensual;
     }
 }

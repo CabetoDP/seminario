@@ -9,10 +9,10 @@ public class AdministracionGimnasio {
     public long id;
     @OneToOne
     @JoinColumn (name = "IdAdministrador")
-    public Usuario IdAdministrador;
+    public Usuario idAdministrador;
     @ManyToOne
     @JoinColumn (name = "IdGimnasio")
-    public Gimnasio IdGimnasio;
+    public Gimnasio idGimnasio;
 
     public AdministracionGimnasio(){
 

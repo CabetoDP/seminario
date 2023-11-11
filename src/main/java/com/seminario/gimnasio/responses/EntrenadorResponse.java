@@ -5,6 +5,7 @@ public class EntrenadorResponse {
     public long id;
     public String Especialidad;
     public String Descripcion;
+    public int costoMensual;
 
     public EntrenadorResponse(){
 
@@ -20,5 +21,9 @@ public class EntrenadorResponse {
 
     public String getDescripcion() {
         return Descripcion;
+    }
+
+    public int getCostoMensual() {
+        return costoMensual;
     }
 }

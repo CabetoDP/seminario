@@ -13,7 +13,7 @@ public class ContratoGimnasio {
     public Usuario IdCliente;
     @ManyToOne
     @JoinColumn (name = "IdGimnasio")
-    public Gimnasio IdGimnasio;
+    public Gimnasio idGimnasio;
     public String tYc;
 
     public ContratoGimnasio(){

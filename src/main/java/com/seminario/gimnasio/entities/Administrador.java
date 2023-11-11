@@ -8,7 +8,7 @@ public class Administrador {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public long id;
     @OneToOne
-    public Usuario IdUsuario;
+    public Usuario idUsuario;
     public Administrador(){
 
     }

@@ -8,6 +8,7 @@ public class ContratoGimnasioResponse {
     public long id;
     public Cliente IdCliente;
     public Gimnasio IdGimnasio;
+    public int costoMensual;
 
     public ContratoGimnasioResponse(){
 

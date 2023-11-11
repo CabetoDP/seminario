@@ -9,27 +9,35 @@ public class Cliente {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public long id;
     @OneToOne
-    public Usuario IdUsuario;
-    public float Altura;
-    public float Peso;
+    public Usuario idUsuario;
+    public float altura;
+    public float peso;
 
     public Cliente(){
 
     }
 
+    public Usuario getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(Usuario idUsuario) {
+        this.idUsuario = idUsuario;
+    }
+
     public float getAltura() {
-        return Altura;
+        return altura;
     }
     
-    public void setAltura(float altura) {
-        Altura = altura;
+    public void setAltura(float Altura) {
+        altura = Altura;
     }
 
     public float getPeso() {
-        return Peso;
+        return peso;
     }
 
-    public void setPeso(float peso) {
-        Peso = peso;
+    public void setPeso(float Peso) {
+        peso = Peso;
     }
 }

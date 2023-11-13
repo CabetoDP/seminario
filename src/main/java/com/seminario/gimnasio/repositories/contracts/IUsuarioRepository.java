@@ -1,5 +1,6 @@
 package com.seminario.gimnasio.repositories.contracts;
 import com.seminario.gimnasio.entities.Usuario;
+import com.seminario.gimnasio.requests.IdRequest;
 import com.seminario.gimnasio.responses.UsuarioResponse;
 
 import java.util.List;
@@ -21,7 +22,7 @@ public interface IUsuarioRepository extends JpaRepository<Usuario, Long>{
     @Query(value = "SELECT * FROM Usuarios WHERE correo = :correo AND contraseña = :contraseña", nativeQuery = true)
     public Usuario mostrar(@Param("correo") String correo, @Param("contraseña") String contraseña);
 
-    @Query(value = "SELECT apellidos, celular, nombres, tipo_usuario, fecha_de_nacimiento FROM Usuarios WHERE id = :id", nativeQuery = true)
+    @Query(value = "SELECT id, tipo_usuario, nombres, apellidos, celular, fecha_de_nacimiento FROM Usuarios WHERE id = :id", nativeQuery = true)
     public UsuarioResponse mostrarPerfil(@Param("id") long id);
     
     @Query(value = "SELECT DISTINCT u.id, u.apellidos, u.celular, u.nombres, u.tipo_usuario, u.fecha_de_nacimiento " +

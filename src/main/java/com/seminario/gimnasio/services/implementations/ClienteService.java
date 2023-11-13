@@ -1,6 +1,7 @@
 package com.seminario.gimnasio.services.implementations;
 import com.seminario.gimnasio.entities.Cliente;
 import com.seminario.gimnasio.repositories.contracts.IClienteRepository;
+import com.seminario.gimnasio.requests.IdRequest;
 import com.seminario.gimnasio.responses.ClienteResponse;
 import com.seminario.gimnasio.services.contracts.IClienteService;
 

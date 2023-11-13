@@ -1,4 +1,5 @@
 package com.seminario.gimnasio.controllers;
+import com.seminario.gimnasio.requests.IdRequest;
 import com.seminario.gimnasio.requests.LoginRequest;
 import com.seminario.gimnasio.responses.LoginResponse;
 import com.seminario.gimnasio.responses.UsuarioResponse;
@@ -48,8 +49,8 @@ public class UsuarioController {
     }
     
     @PostMapping("/showProfile")
-    private ResponseEntity<UsuarioResponse> showProfile(@RequestBody long id) {
-        return this.usuarioService.showProfile(id);
+    private ResponseEntity<UsuarioResponse> showProfile(@RequestBody IdRequest id) {
+        return this.usuarioService.showProfile(id.id);
     }
 
     @PostMapping("/listContacts")

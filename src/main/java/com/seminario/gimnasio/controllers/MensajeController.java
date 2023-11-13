@@ -10,6 +10,9 @@ import com.seminario.gimnasio.entities.Mensaje;
 import com.seminario.gimnasio.requests.ChatRequest;
 import com.seminario.gimnasio.services.contracts.IMensajeService;
 
+
+@RestController
+@RequestMapping("/mensajes")
 public class MensajeController {
 
     @Autowired

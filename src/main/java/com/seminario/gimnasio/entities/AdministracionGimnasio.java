@@ -6,6 +6,7 @@ import jakarta.persistence.*;
 public class AdministracionGimnasio {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public long id;
     @OneToOne
     @JoinColumn (name = "IdAdministrador")

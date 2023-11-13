@@ -1,6 +1,7 @@
 package com.seminario.gimnasio.controllers;
 import com.seminario.gimnasio.requests.IdRequest;
 import com.seminario.gimnasio.requests.LoginRequest;
+import com.seminario.gimnasio.requests.StringRequest;
 import com.seminario.gimnasio.responses.LoginResponse;
 import com.seminario.gimnasio.responses.UsuarioResponse;
 import com.seminario.gimnasio.entities.Usuario;
@@ -54,13 +55,13 @@ public class UsuarioController {
     }
 
     @PostMapping("/listContacts")
-    private ResponseEntity <List<UsuarioResponse>> listContacts (Long id){
-        return this.usuarioService.listContacts(id);
+    private ResponseEntity <List<UsuarioResponse>> listContacts (@RequestBody IdRequest id){
+        return this.usuarioService.listContacts(id.id);
     }
 
     @PostMapping("/search")
-    private ResponseEntity <UsuarioResponse> search (String busqueda){
-        return this.usuarioService.search(busqueda);
+    private ResponseEntity <UsuarioResponse> search (@RequestBody StringRequest busqueda){
+        return this.usuarioService.search(busqueda.cadena);
     }
 
     @GetMapping ("/listProfiles")

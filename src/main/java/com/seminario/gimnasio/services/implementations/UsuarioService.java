@@ -13,6 +13,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -99,13 +100,22 @@ public class UsuarioService implements IUsuarioService {
 
     @Override
     public ResponseEntity<UsuarioResponse> showProfile (Long id){
-        UsuarioResponse usuario = this.usuarioRepository.mostrarPerfil(id);
-        return new ResponseEntity<UsuarioResponse>(usuario, HttpStatus.OK);
+        Usuario usuario = this.usuarioRepository.mostrarPerfil(id);
+        UsuarioResponse perfilUsuario = new UsuarioResponse(id, usuario.tipoUsuario, usuario.nombres, usuario.apellidos, usuario.celular, usuario.fechaDeNacimiento);
+        return new ResponseEntity<UsuarioResponse>(perfilUsuario, HttpStatus.OK);
     }
     
     public ResponseEntity <List<UsuarioResponse>> listContacts (Long id){
-        List<UsuarioResponse> usuario = this.usuarioRepository.listarContactos(id);
-        return new ResponseEntity<List<UsuarioResponse>>(usuario, HttpStatus.OK);
+        List<Usuario> usuarios = this.usuarioRepository.listarContactos(id);
+
+        List<UsuarioResponse> contactos = new ArrayList<>();
+
+        for (Usuario usuario : usuarios) {
+
+            UsuarioResponse response = new UsuarioResponse(id, usuario.tipoUsuario, usuario.nombres, usuario.apellidos, usuario.celular, usuario.fechaDeNacimiento);
+            contactos.add(response);
+        }
+        return new ResponseEntity<List<UsuarioResponse>>(contactos, HttpStatus.OK);
     }
 
     @Override

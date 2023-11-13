@@ -3,6 +3,7 @@ import com.seminario.gimnasio.entities.Cliente;
 import com.seminario.gimnasio.repositories.contracts.IClienteRepository;
 import com.seminario.gimnasio.requests.IdRequest;
 import com.seminario.gimnasio.responses.ClienteResponse;
+import com.seminario.gimnasio.responses.UsuarioResponse;
 import com.seminario.gimnasio.services.contracts.IClienteService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -65,7 +66,8 @@ public class ClienteService implements IClienteService {
 
     @Override
     public ResponseEntity<ClienteResponse> showProfile (long id){
-        ClienteResponse cliente = this.clienteRepository.mostrarPerfil(id);
-        return new ResponseEntity<ClienteResponse>(cliente, HttpStatus.OK);
+        Cliente cliente = this.clienteRepository.mostrarPerfil(id);
+        ClienteResponse perfilCliente = new ClienteResponse(id, cliente.altura, cliente.peso);
+        return new ResponseEntity<ClienteResponse>(perfilCliente, HttpStatus.OK);
     } 
 }

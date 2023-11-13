@@ -39,7 +39,7 @@ public class MensajeController {
     }
 
     @PostMapping("/chatBetweenUsers")
-    private ResponseEntity<List<Mensaje>> chatBetweenUsers(@RequestParam ChatRequest chat) {
+    private ResponseEntity<List<Mensaje>> chatBetweenUsers(@RequestBody ChatRequest chat) {
         return this.mensajeService.chatBetweenUsers(chat.correoLogeado, chat.contraseñaLogeado, chat.id);
     }
 }

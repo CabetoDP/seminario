@@ -10,9 +10,9 @@ import org.springframework.data.repository.query.Param;
 
 public interface IClienteRepository extends JpaRepository<Cliente, Long>{
 
-    @Query(value = "SELECT * FROM Usuarios INNER JOIN Clientes ON Usuarios.id = Clientes.id_usuario_id WHERE Usuarios.correo = :correo AND Usuarios.contraseña = :contraseña", nativeQuery = true)
+    @Query(value = "SELECT Clientes.* FROM Usuarios INNER JOIN Clientes ON Usuarios.id = Clientes.id_usuario_id WHERE Usuarios.correo = :correo AND Usuarios.contraseña = :contraseña", nativeQuery = true)
     public Cliente mostrar(@Param("correo") String correo, @Param("contraseña") String contraseña);
 
-    @Query(value = "SELECT clientes.id_usuario_id, Clientes.altura, Clientes.peso FROM Usuarios INNER JOIN Clientes ON Usuarios.id = Clientes.id_usuario_id WHERE Usuarios.id = :id", nativeQuery = true)
-    public ClienteResponse mostrarPerfil(@Param("id") long id);
+    @Query(value = "SELECT Clientes.id_usuario_id, Clientes.altura, Clientes.peso FROM Usuarios INNER JOIN Clientes ON Usuarios.id = Clientes.id_usuario_id WHERE Usuarios.id = :id", nativeQuery = true)
+    public Cliente mostrarPerfil(@Param("id") long id);
 }

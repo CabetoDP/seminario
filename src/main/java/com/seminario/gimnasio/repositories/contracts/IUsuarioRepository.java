@@ -22,19 +22,19 @@ public interface IUsuarioRepository extends JpaRepository<Usuario, Long>{
     @Query(value = "SELECT * FROM Usuarios WHERE correo = :correo AND contraseña = :contraseña", nativeQuery = true)
     public Usuario mostrar(@Param("correo") String correo, @Param("contraseña") String contraseña);
 
-    @Query(value = "SELECT id, tipo_usuario, nombres, apellidos, celular, fecha_de_nacimiento FROM Usuarios WHERE id = :id", nativeQuery = true)
-    public UsuarioResponse mostrarPerfil(@Param("id") long id);
+    @Query(value = "SELECT * FROM Usuarios WHERE id = :id", nativeQuery = true)
+    public Usuario mostrarPerfil(@Param("id") long id);
     
-    @Query(value = "SELECT DISTINCT u.id, u.apellidos, u.celular, u.nombres, u.tipo_usuario, u.fecha_de_nacimiento " +
+    @Query(value = "SELECT DISTINCT u.* " +
                    "FROM Usuarios u " +
                    "JOIN Mensajes m1 ON u.id = m1.id_usuario_receptor " +
                    "WHERE m1.id_usuario_emisor = :id " +
                    "UNION " +
-                   "SELECT DISTINCT u.id, u.apellidos, u.celular, u.nombres, u.tipo_usuario, u.fecha_de_nacimiento " +
+                   "SELECT DISTINCT u.*" +
                    "FROM Usuarios u " +
                    "JOIN Mensajes m2 ON u.id = m2.id_usuario_emisor " +
                    "WHERE m2.id_usuario_receptor = :id ", nativeQuery = true)
-    List<UsuarioResponse> listarContactos(@Param("id") long id);
+    List<Usuario> listarContactos(@Param("id") long id);
     
     @Query(value = "SELECT id, apellidos, celular, nombres, tipo_usuario, fecha_de_nacimiento FROM Usuarios " +
                    "WHERE CONCAT(Nombres, ' ', Apellidos) LIKE %:busqueda% LIMIT 1", nativeQuery = true)

@@ -10,7 +10,7 @@ public class ContratoGimnasio {
     public long id;
     @ManyToOne
     @JoinColumn (name = "IdCliente")
-    public Usuario IdCliente;
+    public Usuario idCliente;
     @ManyToOne
     @JoinColumn (name = "IdGimnasio")
     public Gimnasio idGimnasio;
@@ -30,11 +30,11 @@ public class ContratoGimnasio {
     }
 
     public Usuario getIdCliente() {
-        return IdCliente;
+        return idCliente;
     }
 
-    public void setIdCliente(Usuario idCliente) {
-        IdCliente = idCliente;
+    public void setIdCliente(Usuario IdCliente) {
+        idCliente = IdCliente;
     }
 
     public Gimnasio getIdGimnasio() {

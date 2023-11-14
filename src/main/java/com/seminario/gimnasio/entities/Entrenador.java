@@ -18,6 +18,22 @@ public class Entrenador {
 
     }
 
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public Usuario getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(Usuario idUsuario) {
+        this.idUsuario = idUsuario;
+    }
+
     public String getEspecialidad() {
         return especialidad;
     }

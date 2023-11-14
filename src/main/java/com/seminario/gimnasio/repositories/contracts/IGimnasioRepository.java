@@ -16,12 +16,9 @@ public interface IGimnasioRepository extends JpaRepository<Gimnasio, Long>{
 
     @Query(value = "SELECT id, costo_mensual, horarios, nombre, ciudad, barrio, direccion FROM Gimnasios WHERE id = :id", nativeQuery = true)
     public Gimnasio mostrarPerfil(@Param("id") long id);
-    
-    @Query(value = "SELECT id, costo_mensual, horarios, nombre, ciudad, barrio, direccion FROM Gimnasios", nativeQuery = true)
-    GimnasioResponse listar();
 
     @Query(value = "SELECT id, costo_mensual, horarios, nombre, ciudad, barrio, direccion FROM Gimnasios " +
                    "WHERE nombre LIKE %:busqueda% LIMIT 1", nativeQuery = true)
-    UsuarioResponse buscar(@Param("busqueda") String busqueda);
+    Gimnasio buscar(@Param("busqueda") String busqueda);
 
 }

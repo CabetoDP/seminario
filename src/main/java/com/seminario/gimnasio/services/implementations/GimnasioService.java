@@ -1,6 +1,8 @@
 package com.seminario.gimnasio.services.implementations;
+import com.seminario.gimnasio.entities.Entrenador;
 import com.seminario.gimnasio.entities.Gimnasio;
 import com.seminario.gimnasio.repositories.contracts.IGimnasioRepository;
+import com.seminario.gimnasio.responses.UsuarioResponse;
 import com.seminario.gimnasio.services.contracts.IGimnasioService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,5 +55,16 @@ public class GimnasioService implements IGimnasioService {
         }catch (Exception e) {
             return new ResponseEntity<Boolean>(false, HttpStatus.INTERNAL_SERVER_ERROR);
         }
+    }
+
+    @Override
+    public ResponseEntity<Gimnasio> show (long id){
+        Gimnasio gimnasio = this.gimnasioRepository.mostrar(id);
+        return new ResponseEntity<Gimnasio>(gimnasio, HttpStatus.OK);
+    }
+
+    public ResponseEntity <Gimnasio> search(String busqueda){
+        Gimnasio gimnasio = this.gimnasioRepository.buscar(busqueda);
+        return new ResponseEntity<Gimnasio>(gimnasio, HttpStatus.OK);
     }
 }

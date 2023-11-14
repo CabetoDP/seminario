@@ -8,7 +8,7 @@ import org.springframework.data.repository.query.Param;
 
 public interface IAdministradorRepository extends JpaRepository<Administrador, Long>{
     
-    @Query(value = "SELECT * FROM Usuarios INNER JOIN Administradores ON Usuarios.id = Administradores.id_usuario_id WHERE Usuarios.correo = :correo AND Usuarios.contraseña = :contraseña", nativeQuery = true)
+    @Query(value = "SELECT Administradores.* FROM Usuarios INNER JOIN Administradores ON Usuarios.id = Administradores.id_usuario_id WHERE Usuarios.correo = :correo AND Usuarios.contraseña = :contraseña", nativeQuery = true)
     public Administrador mostrar(@Param("correo") String correo, @Param("contraseña") String contraseña);
 
 }

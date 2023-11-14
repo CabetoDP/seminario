@@ -37,7 +37,7 @@ public class AdministradorController {
     }
 
     @PostMapping("/show")
-    private ResponseEntity<Administrador> show(@RequestParam LoginRequest login) {
+    private ResponseEntity<Administrador> show(@RequestBody LoginRequest login) {
         return this.administradorService.show(login.correo, login.contraseña);
     }
 

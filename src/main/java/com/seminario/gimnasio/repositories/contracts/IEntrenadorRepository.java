@@ -10,9 +10,9 @@ import org.springframework.data.repository.query.Param;
 
 public interface IEntrenadorRepository extends JpaRepository<Entrenador, Long>{
 
-    @Query(value = "SELECT * FROM Usuarios INNER JOIN Entrenadores ON Usuarios.id = Entrenadores.id_usuario_id WHERE Usuarios.correo = :correo AND Usuarios.contraseña = :contraseña", nativeQuery = true)
+    @Query(value = "SELECT Entrenadores.id, Entrenadores.costo_mensual, Entrenadores.descripcion, Entrenadores.especialidad, Entrenadores.id_usuario_id  FROM Usuarios INNER JOIN Entrenadores ON Usuarios.id = Entrenadores.id_usuario_id WHERE Usuarios.correo = :correo AND Usuarios.contraseña = :contraseña", nativeQuery = true)
     public Entrenador mostrar(@Param("correo") String correo, @Param("contraseña") String contraseña);
 
-    @Query(value = "SELECT id, especialidad, descripcion FROM Usuarios INNER JOIN Entrenadores ON Usuarios.id = Entrenadores.id_usuario_id WHERE Usuarios.id = id", nativeQuery = true)
-    public EntrenadorResponse mostrarPerfil(@Param("id") long id);
+    @Query(value = "SELECT Entrenadores.* FROM Usuarios INNER JOIN Entrenadores ON Usuarios.id = Entrenadores.id_usuario_id WHERE Usuarios.id = :id", nativeQuery = true)
+    public Entrenador mostrarPerfil(@Param("id") long id);
 }

@@ -1,6 +1,7 @@
 package com.seminario.gimnasio.controllers;
 
 import com.seminario.gimnasio.entities.Entrenador;
+import com.seminario.gimnasio.requests.IdRequest;
 import com.seminario.gimnasio.requests.LoginRequest;
 import com.seminario.gimnasio.responses.EntrenadorResponse;
 import com.seminario.gimnasio.services.contracts.IEntrenadorService;
@@ -38,12 +39,12 @@ public class EntrenadorController {
     }
 
     @PostMapping("/show")
-    private ResponseEntity<Entrenador> show(@RequestParam LoginRequest login) {
+    private ResponseEntity<Entrenador> show(@RequestBody LoginRequest login) {
         return this.entrenadorService.show(login.correo, login.contraseña);
     }
 
     @PostMapping("/showProfile")
-    private ResponseEntity<EntrenadorResponse> showProfile(@RequestParam Long id) {
-        return this.entrenadorService.showProfile(id);
+    private ResponseEntity<EntrenadorResponse> showProfile(@RequestBody IdRequest id) {
+        return this.entrenadorService.showProfile(id.id);
     }
 }

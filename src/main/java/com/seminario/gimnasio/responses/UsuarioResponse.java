@@ -2,11 +2,7 @@ package com.seminario.gimnasio.responses;
 
 import java.time.LocalDate;
 
-import jakarta.persistence.*;
-
-@Entity
 public class UsuarioResponse {
-    @Id
     private long id;
     private String tipo_usuario;
     private String nombres;

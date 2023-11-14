@@ -1,11 +1,9 @@
 package com.seminario.gimnasio.controllers;
 
 import com.seminario.gimnasio.entities.Cliente;
-import com.seminario.gimnasio.entities.Entrenador;
 import com.seminario.gimnasio.requests.IdRequest;
 import com.seminario.gimnasio.requests.LoginRequest;
 import com.seminario.gimnasio.responses.ClienteResponse;
-import com.seminario.gimnasio.responses.EntrenadorResponse;
 import com.seminario.gimnasio.services.contracts.IClienteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
